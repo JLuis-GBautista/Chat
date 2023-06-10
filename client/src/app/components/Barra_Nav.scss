@@ -1,0 +1,152 @@
+@import '../variables';
+
+#barra_nav {
+    width: 100%;
+    height: 60px;
+    box-sizing: border-box;
+    padding: 0 20px;
+    background-color: $primario;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    #super_titulo {
+        font-size: 30px;
+        cursor: pointer;
+        a {
+            color: $secundario;
+            text-decoration: none;
+        }
+        .select_title {
+            color: $fondo !important;
+        }
+    }
+    #info_user {
+        display: none;
+        box-sizing: border-box;
+        z-index: 50;
+        position: absolute;
+        background-color: $primario;
+        color: $fondo;
+        border-right: 10px solid $secundario;
+        height: calc(100vh - 60px);
+        width: 40%;
+        top: 60px;
+        left: 0;
+        padding: 20px;
+        #info_base {
+            width: 100%;
+            height: 60%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            #content_img {
+                width: 150px;
+                height: 150px;
+                overflow: hidden;
+                border-radius: 20px;
+                border: 5px solid $fondo;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            #modificar_img {
+                margin-top: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                box-sizing: border-box;
+                padding: 10px 20px;
+                #change_img {
+                    width: 100%;
+                    cursor: pointer;
+                }
+                #edit_img {
+                    background-color: $secundario;
+                    border-radius: 20px;
+                    padding: 5px 0;
+                    margin-top: 8px;
+                }
+            }
+            h2 {
+                font-size: 20px;
+            }
+        }
+        #info_complemento {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            p {
+                width: 100%;
+                text-align: center;
+                font-size: 18px;
+                span {
+                    font-weight: 700;
+                }
+            }
+        }                   
+    }
+    .info_user_active {
+        display: block !important;
+    }
+    #nav_principal {
+        width: 50%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        .opt_div {
+            list-style: none;
+            font-size: 20px;
+            padding: 0 15px;
+            color: $secundario;
+            .list_opt {
+                display: none;
+                width: 200px;
+                box-sizing: border-box;
+                border: 4px solid #231254;
+                position: absolute;
+                background-color: $primario;
+                right: 0;
+                height: min-content;
+                top: 35px;
+                padding: 0;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-evenly;
+                li {
+                    box-sizing: border-box;
+                    width: 100%;
+                    height: min-content;
+                    list-style: none;
+                    text-align: center;
+                    .opt_link {
+                        text-decoration: none;
+                        color: $secundario;
+                    }
+                    &:hover {
+                        border: 4px solid #231254;
+                        color: #fff;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .show {
+                display: flex;
+                z-index: 100;
+             }
+            .icon_list {
+                font-size: 30px;
+                color: $secundario;
+                &:hover {
+                    color: $fondo;
+                    cursor: pointer;
+                }
+            }
+            .selected {
+                color: $fondo;
+            }
+        }
+    }
+}

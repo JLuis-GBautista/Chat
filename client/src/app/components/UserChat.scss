@@ -1,0 +1,33 @@
+$chat_primary: #131313;
+$chat_individual: #566565;
+$chat_select: #899889;
+
+.chat {
+    margin: 5px 0;
+    border: 2px double $chat_primary;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $chat_individual;
+    .click_chat {
+        width: 90%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .content_img {
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            border-radius: 20px;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}
+.select_chat {
+    box-shadow: 0px 0px 2px 6px $chat_select;
+}

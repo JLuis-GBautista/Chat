@@ -1,0 +1,51 @@
+$chat_primary: #131313;
+$chat_secundary: #383838;
+$chat_individual: #566565;
+$chat_select: #899889;
+
+#section_chat{
+    margin: 0;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background-color: $chat_primary;
+    box-sizing: border-box;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    #nombre_chat {
+        width: 100%;
+        font-size: 25px;
+        background-color: $chat_primary;
+        color: #ccf;
+        margin: 0;
+        padding: 5px 0;
+        text-align: center;
+    }
+    #search {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 25% 75%;
+        #search_txt {
+            font-size: 18px;
+            color: #ccf;
+            margin: 0 10px;
+        }
+        #search_inp {
+            font-size: 18px;
+            border: 3px solid #ccf;
+            background-color: #fff;
+            color: #000;
+            margin: 0 20px;
+        }
+    }
+    #section_area {
+        width: 90%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: auto;
+        background-color: $chat_secundary;
+    }
+}
