@@ -12,5 +12,6 @@ import MessageService from './services/message.service';
   imports: [UsersModule, TypeOrmModule.forFeature([Chats, Messages])],
   controllers: [ChatController],
   providers: [ChatService, WsGateway, MessageService],
+  exports: [ChatModule],
 })
 export class ChatModule {}

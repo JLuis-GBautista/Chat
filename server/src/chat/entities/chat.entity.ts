@@ -1,4 +1,4 @@
-import Users from 'src/users/entities/user.entity';
+import Users from '../../users/entities/user.entity';
 import {
   Column,
   CreateDateColumn,
@@ -26,6 +26,12 @@ export default class Chats {
 
   @OneToMany(() => Messages, (msg) => msg.chat)
   mensajes: Messages[];
+
+  @Column('varchar', { nullable: true })
+  extra: string;
+
+  @Column('varchar', { nullable: true })
+  extra2: string;
 
   @ManyToMany(() => Users, (user) => user.chats)
   @JoinTable({

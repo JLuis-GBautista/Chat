@@ -7,7 +7,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import Chats from './chat.entity';
-import Users from 'src/users/entities/user.entity';
+import Users from '../../users/entities/user.entity';
 
 @Entity({ name: 'mensajes' })
 export default class Messages {
@@ -19,6 +19,9 @@ export default class Messages {
 
   @Column('boolean', { default: false })
   visto: boolean;
+
+  @Column('varchar', { nullable: true })
+  extra: boolean;
 
   @CreateDateColumn()
   fecha_creado: Date;

@@ -22,7 +22,14 @@ import CreateUserDTO from './pipes/createUser.pipe';
 import UpdateUserDTO from './pipes/editUser.pipe';
 import LoginUserDTO from './pipes/loginUser.pipe';
 import { FileInterceptor } from '@nestjs/platform-express';
+import {
+  ApiBearerAuth,
+  ApiHeader,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 
+@ApiTags('Usuarios')
 @Controller('users')
 export default class UsersController {
   constructor(
@@ -72,7 +79,14 @@ export default class UsersController {
     }
   }
 
+  @ApiHeader({
+    name: 'authorization',
+    description: 'Auth token',
+  })
   @Get('session')
+  @ApiResponse({ status: 200, description: 'Sesión obtenida correctamente' })
+  @ApiResponse({ status: 401, description: 'No autorizado' })
+  @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   async Session(@Req() req: Request) {
     try {
@@ -83,6 +97,7 @@ export default class UsersController {
   }
 
   @Patch('update')
+  @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   async EditUser(@Req() req: Request, @Body() data: UpdateUserDTO) {
     try {
@@ -105,6 +120,7 @@ export default class UsersController {
   }
 
   @Delete('delete')
+  @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   async DeleteUser(@Req() req: Request) {
     try {
@@ -115,6 +131,7 @@ export default class UsersController {
   }
 
   @Get('close')
+  @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   Logout(@Res({ passthrough: true }) res: Response) {
     res.clearCookie('refresh_token');

@@ -1,5 +1,5 @@
-import Chats from 'src/chat/entities/chat.entity';
-import Messages from 'src/chat/entities/message.entity';
+import Chats from '../../chat/entities/chat.entity';
+import Messages from '../../chat/entities/message.entity';
 import {
   AfterLoad,
   Column,

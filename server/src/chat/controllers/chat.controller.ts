@@ -14,7 +14,9 @@ import UsersService from 'src/users/users.service';
 import CreateChatDTO from '../pipes/createChat.pipe';
 import { AuthGuard } from '@nestjs/passport';
 import { Request } from 'express';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Chat')
 @Controller('chats')
 export default class ChatController {
   constructor(

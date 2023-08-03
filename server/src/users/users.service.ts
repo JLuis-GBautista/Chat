@@ -52,6 +52,8 @@ export default class UsersService {
     });
     if (!usuario)
       throw new HttpException('Error de sesion', HttpStatus.NOT_FOUND);
+    console.log(usuario);
+    usuario.foto = undefined;
     return usuario;
   }
 

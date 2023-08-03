@@ -7,7 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.env.development',
+      envFilePath: ['.env.development', '.env.test'],
       isGlobal: true,
     }),
     TypeOrmModule.forRootAsync({
@@ -22,7 +22,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         database: ConfigService.get('DB_NAME'),
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
         retryDelay: 3000,
-        synchronize: true,
+        synchronize: false,
+        migrations: [__dirname + '/migrations/**/*{.ts,.js}'],
+        cli: {
+          migrationsDir: './migrations',
+        },
       }),
     }),
     ChatModule,
